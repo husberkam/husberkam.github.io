@@ -1,0 +1,18 @@
+body {
+  background: #f5f7fa;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: darkslategrey;
+  text-align: center;
+}
+
+.about { background: #eef6ff; }
+.skills { background: #f4fff0; }
+.projects { background: #fff8e6; }
+.contact { background: #f9f0ff; }
+
+ul {
+  padding-left: 20px;
+}
