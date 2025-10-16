@@ -1,18 +1,23 @@
 body {
   background: #f5f7fa;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
   color: darkslategrey;
   text-align: center;
+  margin-top: 0;
 }
+.about   { background: #eef6ff; padding: 12px; }
+.skills  { background: #f4fff0; padding: 12px; }
+.projects{ background: #fff8e6; padding: 12px; }
+.contact { background: #f9f0ff; padding: 12px; }
 
-.about { background: #eef6ff; }
-.skills { background: #f4fff0; }
-.projects { background: #fff8e6; }
-.contact { background: #f9f0ff; }
+ul { padding-left: 20px; margin: 0; }
 
-ul {
-  padding-left: 20px;
-}
+/* Problem Statement */
+.project { margin-top: 10px; }
+.project img { max-width: 100%; height: auto; display: block; }
+
