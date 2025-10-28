@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="800">
+  <rect x="20" y="20" width="360" height="760" fill="none" stroke="black" stroke-width="2"/>
+  <rect x="20" y="720" width="360" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="750" font-size="16" text-anchor="middle">Extend Time Flow</text>
+
+  <!-- Reminder banner -->
+  <rect x="40" y="660" width="320" height="40" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="685" font-size="12" text-anchor="middle">Reminder: 10 min left — Extend?</text>
+
+  <!-- Extend card -->
+  <rect x="60" y="380" width="280" height="220" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="560" font-size="14" text-anchor="middle">Extend Time</text>
+
+  <!-- Options -->
+  <rect x="80" y="480" width="70" height="35" fill="none" stroke="black"/><text x="115" y="502" font-size="12" text-anchor="middle">+15m</text>
+  <rect x="170" y="480" width="70" height="35" fill="none" stroke="black"/><text x="205" y="502" font-size="12" text-anchor="middle">+30m</text>
+  <rect x="260" y="480" width="70" height="35" fill="none" stroke="black"/><text x="295" y="502" font-size="12" text-anchor="middle">+60m</text>
+
+  <!-- Payment -->
+  <rect x="80" y="420" width="240" height="35" fill="none" stroke="black"/>
+  <text x="200" y="442" font-size="12" text-anchor="middle">Apple Pay / Card • $1.50</text>
+
+  <!-- Confirm -->
+  <rect x="120" y="360" width="160" height="40" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="385" font-size="12" text-anchor="middle">Confirm</text>
+</svg>
