@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="800">
+  <rect x="20" y="20" width="360" height="760" fill="none" stroke="black" stroke-width="2"/>
+  <rect x="20" y="720" width="360" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="750" font-size="16" text-anchor="middle">Meter Status</text>
+
+  <rect x="60" y="520" width="280" height="140" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="200" y="610" font-size="14" text-anchor="middle">Meter M-12</text>
+  <text x="200" y="590" font-size="12" text-anchor="middle">Remaining: 1h 12m</text>
+
+  <!-- Hour buttons -->
+  <rect x="80" y="540" width="70" height="30" fill="none" stroke="black"/><text x="115" y="560" font-size="12" text-anchor="middle">1 hr</text>
+  <rect x="170" y="540" width="70" height="30" fill="none" stroke="black"/><text x="205" y="560" font-size="12" text-anchor="middle">2 hr</text>
+  <rect x="260" y="540" width="70" height="30" fill="none" stroke="black"/><text x="295" y="560" font-size="12" text-anchor="middle">3 hr</text>
+
+  <!-- Risk bar -->
+  <rect x="60" y="480" width="280" height="20" fill="none" stroke="black"/>
+  <text x="200" y="495" font-size="11" text-anchor="middle">Ticket risk: low → high</text>
+</svg>
