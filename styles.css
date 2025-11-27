@@ -73,4 +73,16 @@ a:focus {
 .top-links a { display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none; background:#111; color:#fff; }
 .top-links a:hover { opacity:.9; }
 
+/* Center project cards (PM5 INCLUDED) */
+.projects { text-align: center; } 
+.projects > h2, .projects > ul { text-align: left; }
+
+.project{
+  display: inline-block;
+  vertical-align: top;
+  width: 320px;
+  max-width: 100%;
+  margin: 16px;
+}
+
 }
