@@ -69,4 +69,8 @@ a:focus {
 
 @media (max-width: 480px) {
   body { padding: 12px; }
+  
+.top-links a { display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none; background:#111; color:#fff; }
+.top-links a:hover { opacity:.9; }
+
 }
