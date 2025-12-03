@@ -1,115 +1,143 @@
-/* Final Theme */
-
+/* --- Base layout & theme --- */
 :root{
-  --bg-1:#f6f8fb;
-  --bg-2:#eef2f7;
-  --panel:#ffffff;
-  --ink:#1f2937;
-  --muted:#6b7280;
-  --line:#e5e7eb;
-  --accent:#0ea5e9;     /* sky */
-  --accent-2:#22c55e;   /* green for subtle accents if needed */
-  --radius:16px;
-  --shadow:0 8px 24px rgba(2,6,23,.06);
-  --shadow-lg:0 14px 32px rgba(2,6,23,.12);
+  --bg: #eef2f7;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --muted: #5a667b;
+  --ring: rgba(99, 102, 241, .35);
+  --shadow: 0 6px 20px rgba(15, 23, 42, .08);
+  --radius: 16px;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font: 15px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+*{ box-sizing: border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
   color:var(--ink);
-  background: linear-gradient(180deg,var(--bg-1),var(--bg-2)) fixed;
-  padding: 24px 14px 60px;
+  background:linear-gradient(180deg, #f4f7fb 0%, #e9eef5 100%);
+  font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
 }
 
-/* Headline */
+/* Page container */
+.site{
+  max-width: 1060px;
+  margin: 32px auto 64px;
+  padding: 0 20px 24px;
+}
+
+/* Header */
+.site-header{
+  text-align:center;
+  margin-bottom: 18px;
+}
+
 h1{
-  margin: 4px 0 18px;
-  text-align:center;
-  font-weight:800;
-  letter-spacing:.2px;
-  color:#1b3a4b;
+  margin: 12px 0 10px;
+  font-size: clamp(28px, 3.8vw, 36px);
+  letter-spacing: 0.2px;
+  color:#0e1b2e;
 }
 
-/* Top action links */
-.top-links, .cta{
-  text-align:center;
-  margin: 6px 0;
+/* Buttons */
+.actions{
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap: wrap;
 }
-.top-links a, .cta a{
-  display:inline-block;
-  text-decoration:none;
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background:#2563eb;
   color:#fff;
-  background:var(--accent);
-  padding:10px 16px;
-  border-radius:999px;
+  text-decoration:none;
   box-shadow: var(--shadow);
-  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  transition: transform .06s ease, box-shadow .15s ease, background .2s ease;
 }
-.top-links a:hover, .cta a:hover{ transform: translateY(-1px); box-shadow: var(--shadow-lg); }
-.top-links a:focus, .cta a:focus{ outline:3px solid #94d9f8; outline-offset:2px; }
+.btn:hover{ transform: translateY(-1px); background:#1e4fd6; }
+.btn:focus{ outline: none; box-shadow: 0 0 0 4px var(--ring); }
+.btn-secondary{ background:#0ea5e9; }
+.btn-secondary:hover{ background:#098fc9; }
 
-/* Section cards (About / Skills / Contact) */
-.about, .skills, .contact{
-  max-width: 980px;
-  margin: 16px auto;
-  background: var(--panel);
-  border:1px solid var(--line);
+/* Cards (generic) */
+.card{
+  background: var(--card);
   border-radius: var(--radius);
   padding: 18px 20px;
+  margin: 16px auto;
   box-shadow: var(--shadow);
 }
-.about h2, .skills h2, .contact h2, .projects h2{ margin: 0 0 10px }
+
+h2{
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+h3{
+  margin: 0 0 8px;
+  font-size: 18px;
+}
 
 /* Lists */
-ul{margin: 8px 0 0 20px; padding:0}
-li{margin:4px 0}
+ul{ margin: 8px 0 0 20px; }
+.lead-list{ margin-top: 2px; }
 
-/* Projects grid (cards inside) */
+/* Project grid */
 .projects{
-  max-width:1100px;
-  margin: 22px auto;
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+  align-items: start;           /* keep card tops aligned */
+  grid-auto-flow: row dense;    /* fill gaps to keep cards on the same row */
 }
-.projects > ul{ grid-column: 1 / -1; margin:0 0 6px 0 }  /* “Highlighted projects” bullet list spans full width */
 
-/* Individual project card */
+/* Make section title + bullets span full grid width (fixes misalignment) */
+.projects > h2,
+.projects > ul{
+  grid-column: 1 / -1;
+}
+.projects > h2{
+  margin: 0 0 10px;
+  padding-left: 2px;
+}
+.projects > ul{
+  margin: 0 0 14px 0;
+  padding-left: 18px;           /* neat bullet indent */
+}
+
+/* Individual project cards inside the grid */
 .project{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius: var(--radius);
-  padding:16px;
-  box-shadow: var(--shadow);
   display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
+  flex-direction: column;
+  gap: 10px;
 }
-.project h3{ margin: 0 0 8px; }
-.project p{ margin: 8px 0 0; color: var(--ink); }
-.project a{text-decoration:none; color:inherit; border-bottom:1px dotted #b6c2d1}
-.project a:hover{ border-bottom-color: transparent }
+
+/* Linked preview (title + image) */
+.project-link{
+  text-decoration: none;
+  color: inherit;
+}
 .project img{
-  width:100%; height:auto; display:block;
+  width: 100%;
+  height: auto;
   border-radius: 12px;
-  border:1px solid var(--line);
-  margin: 6px 0 8px;
+  display: block;
+  border: 1px solid #e7e9ef;
 }
 
-/* Standalone “Code Samples (CSCE 240)” section behaves like a centered card */
-section.project:nth-last-child(1){
-  max-width: 720px;
-  margin: 6px auto 0;
+/* Small paragraph list for repo links */
+.repo-list{
+  margin: 4px 0 0;
 }
 
-/* Accessibility: visible focus on all links */
-a:focus{ outline:3px solid var(--accent); outline-offset:2px }
-
-/* Small screens */
-@media (max-width: 480px){
-  body{ padding: 18px 10px 48px; }
-  .top-links a, .cta a{ padding:9px 14px }
+/* Responsive tweaks */
+@media (max-width: 560px){
+  .card{ padding:16px; }
+  .btn{ width: 100%; }
 }
