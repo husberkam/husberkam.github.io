@@ -1,91 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CSCE 190: Huseyin Berat Kamer</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Huseyin Berat Kamer</h1>
+  <main class="site">
+    <header class="site-header">
+      <h1>Huseyin Berat Kamer</h1>
 
-  <p class="top-links"><a href="resume.html">→ View my Resume</a></p>
-  <p class="cta"><a href="files/resume.pdf" download>Download PDF</a></p>
+      <!-- Top actions: resume page and downloadable PDF -->
+      <div class="actions">
+        <a class="btn" href="resume.html">View my Resume</a>
+        <a class="btn btn-secondary" href="files/resume.pdf" download>Download PDF</a>
+      </div>
+    </header>
 
-  <div class="about">
-    <h2>About me</h2>
-    <p>
-      My mission is to grow as a programmer, coder, and learner who enjoys new challenges.
-      I like coding on my own but also thrive when I have good relationships and a positive
-      environment around me.
-    </p>
-  </div>
-
-  <div class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML &amp; CSS basics</li>
-      <li>Python &amp; C++</li>
-      <li>Java</li>
-    </ul>
-  </div>
-
-  <div class="projects">
-    <h2>Highlighted projects</h2>
-    <ul>
-      <li>Personal Portfolio Website</li>
-      <li>Intro Programming Assignments</li>
-    </ul>
-
-    <!-- Problem Statement Assignment -->
-    <section class="project">
-      <a href="files/p-statement.pdf"><h3>Problem Statement</h3></a>
-      <a href="files/p-statement.pdf">
-        <img src="images/p-statement.png" alt="Problem Statement one-sentence overview">
-      </a>
+    <!-- About card -->
+    <section class="card">
+      <h2>About me</h2>
       <p>
-        Many USC campus meters only allow whole-hour purchases (1–2–3 hours), so a 75-minute class
-        forces students to pay for two hours or risk a ticket, making short visits costly and
-        inefficient during peak hours.
+        My mission is to grow as a programmer, coder, and learner who enjoys new challenges.
+        I like coding on my own but also thrive when I have good relationships and a positive
+        environment around me.
       </p>
     </section>
-    <!-- /Problem Statement Assignment -->
 
-    <!-- PM3: Affinity Diagram -->
-    <section class="project">
-      <a href="files/pm3-affinity.pdf"><h3>Affinity Diagram (PM3)</h3></a>
-      <a href="files/pm3-affinity.pdf">
-        <img src="images/pm3-affinity.png" alt="Affinity Diagram overview">
-      </a>
-      <p>
-        Groups the campus-parking problem into themes (lot availability, meter time/price mismatch,
-        permit/zone rules, wayfinding to alternatives, and enforcement anxiety) to guide solution
-        scope and next-step prototypes.
-      </p>
+    <!-- Skills card -->
+    <section class="card">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML &amp; CSS basics</li>
+        <li>Python &amp; C++</li>
+        <li>Java</li>
+      </ul>
     </section>
-    <!-- /PM3 -->
 
-    <!-- PM4: Sketches -->
-    <section class="project">
-      <a href="files/pm4-sketches.pdf"><h3>Sketches (PM4)</h3></a>
-      <a href="files/pm4-sketches.pdf">
-        <img src="images/pm4-sketch-1.svg" alt="PM4 sketch: Map &amp; Alternatives screen">
-      </a>
-      <p>
-        Three low-fidelity sketches for the parking helper app. This page shows the
-        “Map &amp; Alternatives” screen; the PDF includes all three: Map &amp; Alternatives,
-        Meter Time/Price, and Alerts/Timer.
-      </p>
+    <!-- Projects grid (heading + bullets span full width; cards flow after) -->
+    <section class="projects">
+      <h2>Highlighted projects</h2>
+      <ul class="lead-list">
+        <li>Personal Portfolio Website</li>
+        <li>Intro Programming Assignments</li>
+      </ul>
+
+      <!-- Project: Problem Statement -->
+      <section class="project card">
+        <a class="project-link" href="files/p-statement.pdf">
+          <h3>Problem Statement</h3>
+          <img src="images/p-statement.png" alt="Problem statement one-sentence overview" />
+        </a>
+        <p>
+          Many USC campus meters only allow whole-hour purchases (1–2–3 hours), so a 75-minute class
+          forces students to pay for two hours or risk a ticket, making short visits costly and
+          inefficient during peak hours.
+        </p>
+      </section>
+
+      <!-- Project: PM3 Affinity Diagram -->
+      <section class="project card">
+        <a class="project-link" href="files/pm3-affinity.pdf">
+          <h3>Affinity Diagram (PM3)</h3>
+          <img src="images/pm3-affinity.png" alt="Affinity diagram overview image" />
+        </a>
+        <p>
+          Groups the campus-parking problem into themes (lot availability, meter time/price mismatch,
+          permit/zone rules, wayfinding to alternatives, and enforcement anxiety) to guide solution
+          scope and next-step prototypes.
+        </p>
+      </section>
+
+      <!-- Project: PM4 Sketches -->
+      <section class="project card">
+        <a class="project-link" href="files/pm4-sketches.pdf">
+          <h3>Sketches (PM4)</h3>
+          <img src="images/pm4-sketch-1.svg" alt="PM4 low-fidelity sketch: Map &amp; Alternatives" />
+        </a>
+        <p>
+          Three low-fidelity sketches for the parking helper app. This card shows the
+          “Map &amp; Alternatives” screen; the PDF includes all three: Map &amp; Alternatives,
+          Meter Time/Price, and Alerts/Timer.
+        </p>
+      </section>
+
+      <!-- Project: Code Samples (CSCE 240) - public repos -->
+      <section class="project card">
+        <h3>Code Samples (CSCE 240)</h3>
+        <p class="repo-list">
+          • <a href="https://github.com/husberkam/csce240-program4" target="_blank" rel="noopener">Program 4 (C++)</a><br />
+          • <a href="https://github.com/husberkam/csce240-Program5" target="_blank" rel="noopener">Program 5 (C++)</a>
+        </p>
+      </section>
     </section>
-    <!-- /PM4 -->
-  </div>
 
-  <!-- Code Samples (repos) -->
-  <section class="project">
-    <h3>Code Samples (CSCE 240)</h3>
-    <p>
-      • <a href="https://github.com/husberkam/csce240-program4" target="_blank" rel="noopener">Program 4 (C++)</a><br>
-      • <a href="https://github.com/husberkam/csce240-Program5" target="_blank" rel="noopener">Program 5 (C++)</a>
-    </p>
-  </section>
-
+    <!-- Contact card -->
+    <section class="card">
+      <h2>Contact me</h2>
+      <p>Email: <a href="mailto:hkamer@email.sc.edu">hkamer@email.sc.edu</a></p>
+    </section>
+  </main>
 </body>
 </html>
