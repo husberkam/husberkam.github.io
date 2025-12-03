@@ -1,88 +1,115 @@
-:root {
-  --card-bg: #ffffff;
-  --shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+/* Final Theme */
+
+:root{
+  --bg-1:#f6f8fb;
+  --bg-2:#eef2f7;
+  --panel:#ffffff;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --accent:#0ea5e9;     /* sky */
+  --accent-2:#22c55e;   /* green for subtle accents if needed */
+  --radius:16px;
+  --shadow:0 8px 24px rgba(2,6,23,.06);
+  --shadow-lg:0 14px 32px rgba(2,6,23,.12);
 }
 
-body {
-  background: #f5f7fa;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  margin: 0;
-  padding: 20px;
-  max-width: 980px;
-  margin-inline: auto;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font: 15px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--ink);
+  background: linear-gradient(180deg,var(--bg-1),var(--bg-2)) fixed;
+  padding: 24px 14px 60px;
 }
 
-h1 {
-  color: darkslategrey;
-  text-align: center;
-  margin-top: 0;
+/* Headline */
+h1{
+  margin: 4px 0 18px;
+  text-align:center;
+  font-weight:800;
+  letter-spacing:.2px;
+  color:#1b3a4b;
 }
 
-.about   { background: #eef6ff; padding: 12px; margin-bottom: 12px; }
-.skills  { background: #f4fff0; padding: 12px; margin-bottom: 12px; }
-.projects{ background: #fff8e6; padding: 12px; margin-bottom: 12px; }
-.contact { background: #f9f0ff; padding: 12px; }
-
-ul { padding-left: 20px; margin: 0; }
-
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 14px;
-  align-items: start;
+/* Top action links */
+.top-links, .cta{
+  text-align:center;
+  margin: 6px 0;
 }
-
-.projects > ul { grid-column: 1 / -1; margin-bottom: 6px; }
-
-.project {
-  background: var(--card-bg);
-  border-radius: 14px;
+.top-links a, .cta a{
+  display:inline-block;
+  text-decoration:none;
+  color:#fff;
+  background:var(--accent);
+  padding:10px 16px;
+  border-radius:999px;
   box-shadow: var(--shadow);
-  padding: 12px;
-  margin: 0;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
+.top-links a:hover, .cta a:hover{ transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.top-links a:focus, .cta a:focus{ outline:3px solid #94d9f8; outline-offset:2px; }
 
-.project h3 {
-  text-align: center;
-  margin: 6px 0 10px;
+/* Section cards (About / Skills / Contact) */
+.about, .skills, .contact{
+  max-width: 980px;
+  margin: 16px auto;
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
 }
+.about h2, .skills h2, .contact h2, .projects h2{ margin: 0 0 10px }
 
-.project a {
-  color: inherit;
-  text-decoration: none;
+/* Lists */
+ul{margin: 8px 0 0 20px; padding:0}
+li{margin:4px 0}
+
+/* Projects grid (cards inside) */
+.projects{
+  max-width:1100px;
+  margin: 22px auto;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: stretch;
 }
+.projects > ul{ grid-column: 1 / -1; margin:0 0 6px 0 }  /* “Highlighted projects” bullet list spans full width */
 
-.project a:hover h3 { text-decoration: underline; }
-
-.project img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-a:focus {
-  outline: 2px dashed #6b7280;
-  outline-offset: 2px;
-}
-
-@media (max-width: 480px) {
-  body { padding: 12px; }
-  
-.top-links a { display:inline-block; padding:8px 12px; border-radius:8px; text-decoration:none; background:#111; color:#fff; }
-.top-links a:hover { opacity:.9; }
-
-/* Center project cards (PM5 INCLUDED) */
-.projects { text-align: center; } 
-.projects > h2, .projects > ul { text-align: left; }
-
+/* Individual project card */
 .project{
-  display: inline-block;
-  vertical-align: top;
-  width: 320px;
-  max-width: 100%;
-  margin: 16px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+.project h3{ margin: 0 0 8px; }
+.project p{ margin: 8px 0 0; color: var(--ink); }
+.project a{text-decoration:none; color:inherit; border-bottom:1px dotted #b6c2d1}
+.project a:hover{ border-bottom-color: transparent }
+.project img{
+  width:100%; height:auto; display:block;
+  border-radius: 12px;
+  border:1px solid var(--line);
+  margin: 6px 0 8px;
 }
 
+/* Standalone “Code Samples (CSCE 240)” section behaves like a centered card */
+section.project:nth-last-child(1){
+  max-width: 720px;
+  margin: 6px auto 0;
+}
+
+/* Accessibility: visible focus on all links */
+a:focus{ outline:3px solid var(--accent); outline-offset:2px }
+
+/* Small screens */
+@media (max-width: 480px){
+  body{ padding: 18px 10px 48px; }
+  .top-links a, .cta a{ padding:9px 14px }
 }
