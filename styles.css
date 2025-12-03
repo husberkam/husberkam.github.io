@@ -1,143 +1,99 @@
-/* --- Base layout & theme --- */
+/* ===== Theme ===== */
 :root{
-  --bg: #eef2f7;
-  --card: #ffffff;
-  --ink: #0f172a;
-  --muted: #5a667b;
-  --ring: rgba(99, 102, 241, .35);
-  --shadow: 0 6px 20px rgba(15, 23, 42, .08);
-  --radius: 16px;
+  --bg1:#f4f7fb; --bg2:#e9eef5;
+  --card:#fff; --ink:#0f172a; --muted:#5a667b;
+  --accent:#2563eb; --accent2:#0ea5e9;
+  --ring:rgba(99,102,241,.35);
+  --shadow:0 6px 20px rgba(15,23,42,.08);
+  --radius:16px;
 }
 
-*{ box-sizing: border-box; }
-
+*{box-sizing:border-box}
 html,body{
-  margin:0;
-  padding:0;
+  margin:0; padding:0;
   color:var(--ink);
-  background:linear-gradient(180deg, #f4f7fb 0%, #e9eef5 100%);
-  font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 100%);
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
 }
 
-/* Page container */
-.site{
-  max-width: 1060px;
-  margin: 32px auto 64px;
-  padding: 0 20px 24px;
+/* ===== Universal centering fallback (works even without a wrapper) ===== */
+/* Give common top-level blocks a centered max-width */
+body > h1,
+body > .about,
+body > .skills,
+body > .projects,
+body > .contact,
+body > .card,
+body > section:not(.projects){
+  max-width:1060px;
+  margin-left:auto; margin-right:auto;
+  padding-left:20px; padding-right:20px;
 }
 
-/* Header */
-.site-header{
-  text-align:center;
-  margin-bottom: 18px;
-}
+/* If you DO add <main class="site">, it will use the same centering */
+.site{ max-width:1060px; margin:32px auto 64px; padding:0 20px 24px; }
 
+/* ===== Header ===== */
 h1{
-  margin: 12px 0 10px;
-  font-size: clamp(28px, 3.8vw, 36px);
-  letter-spacing: 0.2px;
-  color:#0e1b2e;
+  text-align:center;
+  margin:18px auto 8px;
+  font-size:clamp(28px,3.8vw,36px);
+  letter-spacing:.2px; color:#0e1b2e;
 }
 
-/* Buttons */
-.actions{
-  display:flex;
-  gap: 12px;
-  justify-content:center;
-  flex-wrap: wrap;
+/* Top action links as centered buttons (works with your existing markup) */
+.top-links, .cta{ text-align:center; margin:4px auto 10px; }
+.top-links a, .cta a{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border-radius:999px; text-decoration:none; color:#fff;
+  background:var(--accent); box-shadow:var(--shadow);
+  transition:transform .06s ease, background .2s ease, box-shadow .15s ease;
+  margin:0 6px;
 }
+.top-links a:hover, .cta a:hover{ transform:translateY(-1px); background:#1e4fd6; }
+.cta a{ background:var(--accent2); }
+.cta a:hover{ background:#098fc9; }
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background:#2563eb;
-  color:#fff;
-  text-decoration:none;
-  box-shadow: var(--shadow);
-  transition: transform .06s ease, box-shadow .15s ease, background .2s ease;
-}
-.btn:hover{ transform: translateY(-1px); background:#1e4fd6; }
-.btn:focus{ outline: none; box-shadow: 0 0 0 4px var(--ring); }
-.btn-secondary{ background:#0ea5e9; }
-.btn-secondary:hover{ background:#098fc9; }
-
-/* Cards (generic) */
+/* ===== Cards ===== */
 .card{
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  margin: 16px auto;
-  box-shadow: var(--shadow);
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  margin:16px auto;
+  box-shadow:var(--shadow);
 }
+h2{ margin:0 0 10px; font-size:22px }
+h3{ margin:0 0 8px; font-size:18px }
+ul{ margin:8px 0 0 20px }
 
-h2{
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-h3{
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-
-/* Lists */
-ul{ margin: 8px 0 0 20px; }
-.lead-list{ margin-top: 2px; }
-
-/* Project grid */
+/* ===== Projects section ===== */
 .projects{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 18px;
-  align-items: start;           /* keep card tops aligned */
-  grid-auto-flow: row dense;    /* fill gaps to keep cards on the same row */
+  /* the heading+bullets share the same centered width by the fallback above */
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:18px;
+  align-items:start;         /* keep card tops aligned */
+  grid-auto-flow:row dense;  /* fill gaps so cards sit on the same line */
 }
 
-/* Make section title + bullets span full grid width (fixes misalignment) */
+/* Make the 'Highlighted projects' title + bullets span full width of the grid */
 .projects > h2,
-.projects > ul{
-  grid-column: 1 / -1;
-}
-.projects > h2{
-  margin: 0 0 10px;
-  padding-left: 2px;
-}
-.projects > ul{
-  margin: 0 0 14px 0;
-  padding-left: 18px;           /* neat bullet indent */
+.projects > ul{ grid-column:1 / -1; }
+.projects > ul{ margin:0 0 14px 0; padding-left:18px; }
+
+/* Individual project cards */
+.project{ display:flex; flex-direction:column; gap:10px; background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); }
+.project img{ width:100%; height:auto; border-radius:12px; display:block; border:1px solid #e7e9ef; }
+.project .repo-list{ margin:4px 0 0 }
+
+/* ===== Contact ===== */
+.contact a{ color:var(--accent); text-decoration:none; border-bottom:1px dotted #b7c1d9 }
+.contact a:hover{ border-bottom-color:transparent }
+
+/* ===== Responsive ===== */
+@media (max-width:560px){
+  .card{ padding:16px }
+  .top-links a, .cta a{ width:100%; margin:6px 0 }
 }
 
-/* Individual project cards inside the grid */
-.project{
-  display:flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Linked preview (title + image) */
-.project-link{
-  text-decoration: none;
-  color: inherit;
-}
-.project img{
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-  border: 1px solid #e7e9ef;
-}
-
-/* Small paragraph list for repo links */
-.repo-list{
-  margin: 4px 0 0;
-}
-
-/* Responsive tweaks */
-@media (max-width: 560px){
-  .card{ padding:16px; }
-  .btn{ width: 100%; }
-}
